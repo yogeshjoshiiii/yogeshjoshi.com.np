@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Projects by Yogesh Joshi.">
+  <title>Projects — Yogesh Joshi</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">Yogesh Joshi</a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
+</header>
+<nav id="site-menu" class="site-menu" aria-label="Main navigation" aria-hidden="true">
+  <div class="menu-inner"><a href="index.html">Index</a><a href="projects.html">Projects</a><a href="tools.html">Tools</a><a href="contact.html">Contact</a></div>
+</nav>
+<main class="page-pad page-main">
+  <div class="page-intro reveal"><span class="eyebrow">PROJECTS</span><h1>Things I’ve built.</h1><p>Replace the entries below with your real project information. No fake projects or statistics.</p></div>
+  <section class="project-list" id="project-list"></section>
+</main>
+<footer class="footer page-pad"><span>Yogesh Joshi</span><span>© <span id="year"></span></span></footer>
+<script>
+const projects = [
+  {name:"Project One", desc:"Add a short, honest description of the project here.", tech:"HTML · CSS · JavaScript", image:"", github:"", live:""},
+  {name:"Project Two", desc:"Add another real project and explain what it does.", tech:"JavaScript · Backend", image:"", github:"", live:""},
+  {name:"Project Three", desc:"Add an experiment, tool or application you actually built.", tech:"Your technologies", image:"", github:"", live:""}
+];
+const list=document.querySelector("#project-list");
+projects.forEach((p,i)=>{
+  const article=document.createElement("article");
+  article.className="project reveal";
+  article.innerHTML=`
+    <div class="project-number">${String(i+1).padStart(2,"0")}</div>
+    ${p.image?`<img loading="lazy" src="${p.image}" alt="${p.name} preview">`:`<div class="project-placeholder" aria-hidden="true"></div>`}
+    <div class="project-body">
+      <h2>${p.name}</h2><p>${p.desc}</p><small>${p.tech}</small>
+      <div class="project-links">${p.github?`<a href="${p.github}" target="_blank" rel="noopener">GitHub ↗</a>`:""}${p.live?`<a href="${p.live}" target="_blank" rel="noopener">Live ↗</a>`:""}</div>
+    </div>`;
+  list.appendChild(article);
+});
+</script>
+<script src="script.js"></script>
+</body>
+</html>
